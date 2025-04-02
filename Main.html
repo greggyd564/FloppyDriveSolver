@@ -36,6 +36,7 @@
         </div>
       
         <p id="Res"></p>
+        <p id="feedbackUserInput"></p>
         <p id="Teest"></p>
         <p id="FinalNum"></p>
         <p id="FinalNumNum"></p>
@@ -60,6 +61,13 @@
             var Bnum2 = 0;
             var Bnum3 = 0;
             var Bnum4 = 0;
+            
+            function ShowUserInput() {
+                var readableUserInput = "You've selected: ";
+                for(var i = 0, i < inputtedSymbols.length, i++)
+                    readableUserInput += inputtedSymbols[i] + " ";
+                document.getElementById("feedbackUserInput").innerHTML = readableUserInput;
+            }
             
             function AddUserInputtedSymbol(symbolNum) {
                 if(inputtedSymbols.length == 4)
