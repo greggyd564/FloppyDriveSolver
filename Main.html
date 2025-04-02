@@ -54,10 +54,19 @@
             //Version 1.00 - Solver made and it works
             //Version 1.01 - Took away debug information
             
+            var inputtedSymbols = [];
+            
             var Bnum1 = 0;
             var Bnum2 = 0;
             var Bnum3 = 0;
             var Bnum4 = 0;
+            
+            function AddUserInputtedSymbol(symbolNum) {
+                if(inputtedSymbols.length == 4)
+                    inputtedSymbols[3] = symbolNum;
+                else 
+                    inputtedSymbols.push(symbolNum);
+            }
             
             function setAVar() {
                 if (Bnum1 == 0) {
@@ -216,10 +225,7 @@
             }
             
             function ReseyRest() {
-                Bnum1 = 0;
-                Bnum2 = 0;
-                Bnum3 = 0;
-                Bnum4 = 0;
+                inputtedSymbols = [];
                 document.getElementById("Res").innerHTML = Bnum1 + "," + Bnum2 + "," + Bnum3 + "," + Bnum4;
             }
             
