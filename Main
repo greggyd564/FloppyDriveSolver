@@ -1,12 +1,14 @@
 <html lang="en">
     
     <head>
-        <h1>Floppy Drive Solver</h1>
-        <p>Created by hjklfsl</p>
-        <p>Symbols by the wonderful u/Kenshin9977</p>
+        <title>Floppy Drive Solver</title>
+        
     </head>
     
     <body>
+        <h1>Floppy Drive Solver</h1>
+        <p>Created by hjklfsl</p>
+        <p>Symbols by the wonderful u/Kenshin9977</p>
         <h4>Click on the symbols you get then click the play button.</h4>
         <h4>The reset button will reset your selected symbols.</h4>
         <div class="row">
