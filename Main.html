@@ -66,6 +66,14 @@
             var Bnum3 = 0;
             var Bnum4 = 0;
             
+            function AddUserInputtedSymbol(symbolNum) {
+                if(inputtedSymbols.length == 4)
+                    inputtedSymbols[3] = symbolNum;
+                else 
+                    inputtedSymbols.push(symbolNum);
+                ShowUserInput();
+            }
+            
             function ShowUserInput() {
                 var readableUserInput = "You've selected: ";
                 for(var i = 0; i < inputtedSymbols.length; i++)
@@ -73,12 +81,23 @@
                 document.getElementById("feedbackUserInput").innerHTML = readableUserInput;
             }
             
-            function AddUserInputtedSymbol(symbolNum) {
-                if(inputtedSymbols.length == 4)
-                    inputtedSymbols[3] = symbolNum;
-                else 
-                    inputtedSymbols.push(symbolNum);
-                ShowUserInput();
+            function OutputSolution() {
+                // Find Solution
+                // Iterate solution and output correct photo for each
+            }
+            
+            function FindSolution() {
+                // Find the array to look into
+                // Iterate array and compare against remaining symbols
+                // Push to output array when you match symbols
+            }
+            
+            function FindArrayContainingSymbols() {
+                // Take the first symbol, decide possible arrays
+                // Take second symbol, but only check the possible arrays
+                // Do the same with symbols 3 and 4
+                // This results in which array has all four symbols
+                // If there is no array with all symbols, what should happen?
             }
             
             
