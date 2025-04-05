@@ -44,27 +44,15 @@
         
         <h4>Insert the Floppy Drives in the Following Order</h4>
         <div>
-            <img hidden id="Out1" src="https://static.wixstatic.com/media/89fb25_c56a50e10482436397ae48ceb17aa074~mv2.png">
-            <img hidden id="Out2" src="https://static.wixstatic.com/media/89fb25_c56a50e10482436397ae48ceb17aa074~mv2.png">
-            <img hidden id="Out3" src="https://static.wixstatic.com/media/89fb25_c56a50e10482436397ae48ceb17aa074~mv2.png">
-            <img hidden id="Out4" src="https://static.wixstatic.com/media/89fb25_c56a50e10482436397ae48ceb17aa074~mv2.png">
+            <img id="Out1" src="https://static.wixstatic.com/media/89fb25_c56a50e10482436397ae48ceb17aa074~mv2.png">
+            <img id="Out2" src="https://static.wixstatic.com/media/89fb25_c56a50e10482436397ae48ceb17aa074~mv2.png">
+            <img id="Out3" src="https://static.wixstatic.com/media/89fb25_c56a50e10482436397ae48ceb17aa074~mv2.png">
+            <img id="Out4" src="https://static.wixstatic.com/media/89fb25_c56a50e10482436397ae48ceb17aa074~mv2.png">
         </div>
         
         <script>
-            //Version Log:
-            //Version 1.00 - Solver made and it works
-            //Version 1.01 - Took away debug information
-            
-            function Test() {
-                document.getElementById("Res").innerHTML = "It works";
-            }
             
             var inputtedSymbols = [];
-            
-            var Bnum1 = 0;
-            var Bnum2 = 0;
-            var Bnum3 = 0;
-            var Bnum4 = 0;
             
             var symbolColumns = [
                 [1,2,3,4,5,6],
@@ -74,6 +62,24 @@
                 [6,11,8,7,10,2],
                 [4,12,5,3,1,6]
             ];
+            
+            var images = [
+                0,
+                "https://static.wixstatic.com/media/89fb25_c9ed126f9c564763a5becfd232158a55~mv2.png",
+                "https://static.wixstatic.com/media/89fb25_4929b58cb01e425ea3bd1eafa5f2e984~mv2.png",
+                "https://static.wixstatic.com/media/89fb25_789172e4965449c9bf556b070ef16a7e~mv2.png",
+                "https://static.wixstatic.com/media/89fb25_48bccbeba0d54e2d9e9d5ca5fddbc0da~mv2.png",
+                "https://static.wixstatic.com/media/89fb25_eaf14ff447db4f5eb7b996c6c3aaef5d~mv2.png",
+                "https://static.wixstatic.com/media/89fb25_bfff1d3038f1489ca430921d6764407b~mv2.png",
+                "https://static.wixstatic.com/media/89fb25_6ddb89a00c3646e58aedc6b5c0355de1~mv2.png",
+                "https://static.wixstatic.com/media/89fb25_ba7d66450a744fb2943a72559f821be8~mv2.png",
+                "https://static.wixstatic.com/media/89fb25_1153b17815104bf2a39dfce7674edd83~mv2.png",
+                "https://static.wixstatic.com/media/89fb25_3e9187d07c454fdaa3315e9e47b217cd~mv2.png",
+                "https://static.wixstatic.com/media/89fb25_e2c59c7e842e493f907e61ed2372ae97~mv2.png",
+                "https://static.wixstatic.com/media/89fb25_c79638a397f54512987936749510fbd4~mv2.png"
+            ];
+            
+            var outputElements = ["Out1", "Out2", "Out3", "Out4"];
             
             function AddUserInputtedSymbol(symbolNum) {
                 if(inputtedSymbols.length == 4)
@@ -91,9 +97,9 @@
             }
             
             function OutputSolution() {
-                document.getElementById("feedbackUserInput").innerHTML = FindSolution();
-                // Find Solution
-                // Iterate solution and output correct photo for each
+                var solution = FindSolution();
+                for(var i = 0; i < solution.length; i++)
+                    document.getElementById(outputElements[i]).setAttribute("src",images[solution[i]]);
             }
             
             function FindSolution() {
