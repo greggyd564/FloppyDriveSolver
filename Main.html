@@ -30,7 +30,7 @@
                 <img id="B10" src="https://static.wixstatic.com/media/89fb25_3e9187d07c454fdaa3315e9e47b217cd~mv2.png" onclick="AddUserInputtedSymbol(10)">
                 <img id="B11" src="https://static.wixstatic.com/media/89fb25_e2c59c7e842e493f907e61ed2372ae97~mv2.png" onclick="AddUserInputtedSymbol(11)">
                 <img id="B12" src="https://static.wixstatic.com/media/89fb25_c79638a397f54512987936749510fbd4~mv2.png" onclick="AddUserInputtedSymbol(12)">
-                <img id="Start" src="https://static.wixstatic.com/media/89fb25_b471212c978e4115a645fe4f6889196e~mv2.png" onclick="RunnyRun()">
+                <img id="Start" src="https://static.wixstatic.com/media/89fb25_b471212c978e4115a645fe4f6889196e~mv2.png" onclick="FindArrayContainingSymbols()">
                 <img id="Reset" src="https://static.wixstatic.com/media/89fb25_703a667b2a4e44c58df5a90c3996210f~mv2.png" onclick="ReseyRest()">
             </div>
         </div>
@@ -66,6 +66,15 @@
             var Bnum3 = 0;
             var Bnum4 = 0;
             
+            var symbolColumns = [
+                [1,2,3,4,5,6],
+                [6,7,8,9,10,2],
+                [9,11,10,7,2,3],
+                [4,9,8,10,2,7],
+                [6,11,8,7,10,2],
+                [4,12,5,3,1,6]
+            ];
+            
             function AddUserInputtedSymbol(symbolNum) {
                 if(inputtedSymbols.length == 4)
                     inputtedSymbols[3] = symbolNum;
@@ -93,11 +102,23 @@
             }
             
             function FindArrayContainingSymbols() {
+                document.getElementById("feedbackUserInput").innerHTML = ArrayIncludesAllInput(symbolColumns[0]);
                 // Take the first symbol, decide possible arrays
                 // Take second symbol, but only check the possible arrays
                 // Do the same with symbols 3 and 4
                 // This results in which array has all four symbols
                 // If there is no array with all symbols, what should happen?
+            }
+            
+            function ArrayIncludesAllInput(arrayToCheck) {
+                var numOfMatches = 0;
+                for(var i = 0; i < 4; i++) {
+                    if(arrayToCheck.includes(inputtedSymbols[i]))
+                        numOfMatches++;
+                }
+                if(numOfMatches == 4)
+                    return true;
+                return false;
             }
             
             
