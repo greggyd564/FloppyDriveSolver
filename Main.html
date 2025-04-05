@@ -30,7 +30,7 @@
                 <img id="B10" src="https://static.wixstatic.com/media/89fb25_3e9187d07c454fdaa3315e9e47b217cd~mv2.png" onclick="AddUserInputtedSymbol(10)">
                 <img id="B11" src="https://static.wixstatic.com/media/89fb25_e2c59c7e842e493f907e61ed2372ae97~mv2.png" onclick="AddUserInputtedSymbol(11)">
                 <img id="B12" src="https://static.wixstatic.com/media/89fb25_c79638a397f54512987936749510fbd4~mv2.png" onclick="AddUserInputtedSymbol(12)">
-                <img id="Start" src="https://static.wixstatic.com/media/89fb25_b471212c978e4115a645fe4f6889196e~mv2.png" onclick="FindArrayContainingSymbols()">
+                <img id="Start" src="https://static.wixstatic.com/media/89fb25_b471212c978e4115a645fe4f6889196e~mv2.png" onclick="FindSolution()">
                 <img id="Reset" src="https://static.wixstatic.com/media/89fb25_703a667b2a4e44c58df5a90c3996210f~mv2.png" onclick="ReseyRest()">
             </div>
         </div>
@@ -96,18 +96,18 @@
             }
             
             function FindSolution() {
+                document.getElementById("feedbackUserInput").innerHTML = FindArrayContainingSymbols();
                 // Find the array to look into
                 // Iterate array and compare against remaining symbols
                 // Push to output array when you match symbols
             }
             
             function FindArrayContainingSymbols() {
-                document.getElementById("feedbackUserInput").innerHTML = ArrayIncludesAllInput(symbolColumns[0]);
-                // Take the first symbol, decide possible arrays
-                // Take second symbol, but only check the possible arrays
-                // Do the same with symbols 3 and 4
-                // This results in which array has all four symbols
-                // If there is no array with all symbols, what should happen?
+                for(var i = 0; i < symbolColumns.length; i++){
+                    if(ArrayIncludesAllInput(symbolColumns[i]))
+                        return symbolColumns[i];
+                }
+                return -1;
             }
             
             function ArrayIncludesAllInput(arrayToCheck) {
